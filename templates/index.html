@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--Bootstrap-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Cupcakes</title>
+</head>
+<body>
+    <h1>All Cupcakes</h1>
+    {% for cupcake in cupcakes %}
+        <!--'data-id' is a data attribute that will store data that we can access via JS-->
+        <!--this data attribute allows us to pass through the cupcake id -->
+        <li>{{ cupcake.flavor }} - <button class="delete-cupcake" data-id="{{cupcake.id}}">X</button></li>
+    {% endfor %}
+    <h2>Add a New Cupcake</h2>
+    <form id="new-cupcake-form">
+        <div>
+          <label for="form-flavor">Flavor: </label>
+          <input name="flavor" id="form-flavor">
+        </div>
+      
+        <div>
+          <label for="form-size">Size: </label>
+          <input name="size" id="form-size">
+        </div>
+      
+        <div>
+          <label for="form-rating">Rating: </label>
+          <input type="number" name="rating" id="form-rating">
+        </div>
+      
+        <div>
+          <label for="form-image">Image: </label>
+          <input name="image" id="form-image">
+        </div>
+      
+        <button>Add!</button>
+      </form>
+      
+<!--AXIOS to make a request-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+<!--jQuery to make this video faster to manipulate the DOM more easily-->
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+<!--We'll respond with this JS file-->
+<script src="static/cupcakes.js"></script>
+       
+</body>
+</html>
